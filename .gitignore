@@ -1,5 +1,4 @@
 *.exe
 input.txt
 output.txt
-iterativePostorderTraversal_using1Stack.cpp
-iterativePostorderTraversal.cpp
+
