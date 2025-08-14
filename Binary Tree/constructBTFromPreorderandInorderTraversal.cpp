@@ -26,12 +26,12 @@ void travserseTree(TreeNode* root){
 
 TreeNode* builtTree(vector<int>& preorder, int preStart, int preEnd, vector<int>& inorder, int inStart, int inEnd, map<int, int>& inOrderMap);
 
-TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-map<int, int> inOrderMap;
-for(int i = 0; i<inorder.size(); i++) inOrderMap[inorder[i]] = i;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    map<int, int> inOrderMap;
+    for(int i = 0; i<inorder.size(); i++) inOrderMap[inorder[i]] = i;
 
-TreeNode* root = builtTree(preorder, 0, preorder.size()-1, inorder, 0, inorder.size() - 1, inOrderMap);
-return root;
+    TreeNode* root = builtTree(preorder, 0, preorder.size()-1, inorder, 0, inorder.size() - 1, inOrderMap);
+    return root;
 }
 
 TreeNode* builtTree(vector<int>&preorder, int preStart, int preEnd, vector<int>&inorder, int inStart, int inEnd,  map<int, int> &inOrderMap){
