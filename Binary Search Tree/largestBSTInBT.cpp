@@ -84,6 +84,48 @@ int largestBSTSubtree(TreeNode* root){
 // TC - O(N)
 // SC - O(N)
 
+
+
+
+
+// babbar code
+class info {
+public:
+    int maxi;
+    int mini;
+    bool isBST;
+    int size;
+};
+
+info largestBSTHelper(TreeNode* root, int &ans){
+    if(root == NULL) return {INT_MIN, INT_MAX, true, 0};
+
+    info left = largestBSTHelper(root->left, ans);
+    info right = largestBSTHelper(root->right, ans);
+
+    info currNode;
+    currNode.size = left.size + right.size + 1;
+    currNode.maxi = max(root->val, right.maxi);
+    currNode.mini = min(root->val, left.mini);
+
+    if(left.isBST && right.isBST && (left.maxi < root->val && root->val < right.mini)){
+        currNode.isBST = true;
+    }
+    else currNode.isBST = false;
+
+    if(currNode.isBST) {
+        ans = max(ans, currNode.size);
+    }
+    return currNode;
+}
+
+int largestBST(TreeNode* root){
+    int maxSize = 0;
+    largestBSTHelper(root, maxSize);
+    return maxSize;
+
+}
+
 int main(){
     TreeNode* root = new TreeNode(10);
     root->left = new TreeNode(5);
