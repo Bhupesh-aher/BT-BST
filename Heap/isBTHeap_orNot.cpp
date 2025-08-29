@@ -29,7 +29,7 @@ int countNo_ofNodes(TreeNode* root){
 bool isCBT(TreeNode* root, int index, int totalCount){
     if(root == NULL) return true;
 
-    if(index > totalCount) return false;
+    if(index >= totalCount) return false;
     else {
         int left = isCBT(root->left, 2 * index + 1, totalCount);
         int right = isCBT(root->right, 2 * index + 2, totalCount);
@@ -74,4 +74,86 @@ int main(){
 
 
 
+
+
+
+
+// ## ✅ What You're Currently Doing (0-based indexing):
+
+// ### Binary Tree as Array (0-based):
+
+// * For a node at index `i`:
+
+//   * **Left child:** `2 * i + 1`
+//   * **Right child:** `2 * i + 2`
+
+// Your current function:
+
+// ```cpp
+// bool isCBT(TreeNode* root, int index, int totalCount) {
+//     if (root == NULL) return true;
+
+//     if (index >= totalCount) return false;
+
+//     bool left = isCBT(root->left, 2 * index + 1, totalCount);
+//     bool right = isCBT(root->right, 2 * index + 2, totalCount);
+
+//     return left && right;
+// }
+// ```
+
+// This is correct for **0-based indexing**, and your `countNo_ofNodes()` function gives `totalCount` correctly as `n`.
+
+// So your final call:
+
+// ```cpp
+// return isCBT(root, 0, totalCount);
+// ```
+
+// is valid.
+
+// ---
+
+// ## 🔄 How to Convert to **1-based indexing**:
+
+// In **1-based indexing**, the child relationships become:
+
+// * For a node at index `i`:
+
+//   * **Left child:** `2 * i`
+//   * **Right child:** `2 * i + 1`
+
+// So the function would change as follows:
+
+// ```cpp
+// bool isCBT(TreeNode* root, int index, int totalCount) {
+//     if (root == NULL) return true;
+
+//     if (index > totalCount) return false;
+
+//     bool left = isCBT(root->left, 2 * index, totalCount);
+//     bool right = isCBT(root->right, 2 * index + 1, totalCount);
+
+//     return left && right;
+// }
+// ```
+
+// And the function call becomes:
+
+// ```cpp
+// int totalCount = countNo_ofNodes(root);
+// return isCBT(root, 1, totalCount);  // Start with index 1
+// ```
+
+// ---
+
+// ## 🧠 Summary:
+
+// | Feature               | 0-Based Indexing             | 1-Based Indexing             |
+// | --------------------- | ---------------------------- | ---------------------------- |
+// | Left Child            | `2 * i + 1`                  | `2 * i`                      |
+// | Right Child           | `2 * i + 2`                  | `2 * i + 1`                  |
+// | Root Index            | `0`                          | `1`                          |
+// | `index >= totalCount` | Yes                          | No, use `index > totalCount` |
+// | Initial Call          | `isCBT(root, 0, totalCount)` | `isCBT(root, 1, totalCount)` |
 

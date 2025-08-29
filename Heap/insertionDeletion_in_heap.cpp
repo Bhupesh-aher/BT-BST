@@ -45,16 +45,21 @@ public:
         while(i < size){
             int leftChildIndex = 2 * i;
             int rightChildIndex = 2 * i + 1;
+            int largest = i;
 
-            if(leftChildIndex < size && arr[i] < arr[leftChildIndex]){
-                swap(arr[i], arr[leftChildIndex]);
-                i = leftChildIndex;
+            if(leftChildIndex <= size && arr[leftChildIndex] > arr[largest]) {
+                largest = leftChildIndex;
             }
-            else if(rightChildIndex < size && arr[i] < arr[rightChildIndex]){
-                swap(arr[i], arr[rightChildIndex]);
-                i = rightChildIndex;
+            if(rightChildIndex <= size && arr[rightChildIndex] > arr[largest]) {
+                largest = rightChildIndex;
             }
-            else return;
+
+            if(largest != i) {
+                swap(arr[i], arr[largest]);
+                i = largest;
+            } else {
+                return;
+            }
         }
     }
 };

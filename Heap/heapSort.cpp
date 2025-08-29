@@ -1,8 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// given an array in random order we need to return it in sorted order
+// first we convert that array into max heap using heapify algorithm
+// then we use heap sort() to sort the array by implementing the logic and with the help of hepify algorithm
+// in short 
+// 1. build (create) a heap from given input array using heapify algorithm
+// 2. call hep sort () which has some logic and it takes help of hepify algo
+// 3. and return the sorted array
 
 
+// Max Heap
 void heapify(int arr[], int n, int i){
 
     int largest = i;
@@ -45,13 +53,17 @@ void heapSort(int arr[], int n){
 
 int main(){
 
+    // an array in random order
     int arr[6] = {-1, 54, 53, 55, 52, 50};
     int n = 5;
+
+    // Created a Max heap (we build max heap / heap creation) from input array
     for(int i = n/2; i>0; i--){
         heapify(arr, n, i);
     }
 
 
+    // given max heap, we need return a sorted array. for that we use heap sort
     heapSort(arr, n);
 
     for(int i = 1; i<=n; i++){

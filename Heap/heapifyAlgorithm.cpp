@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// Build Max Heap
+// Build Max Heap from given input array
 void heapify(int arr[], int n, int i){
 
     int largest = i;
@@ -28,7 +28,7 @@ void heapify(int arr[], int n, int i){
 
 
 
-// Build Min Heap
+// Build Min Heap from given input array
 void heapify_minHeap(vector<int> &arr2, int n, int i){
 
     int smallest = i;
@@ -50,7 +50,8 @@ void heapify_minHeap(vector<int> &arr2, int n, int i){
     }
 }
 
-// TC - O(log N) Heapify Algorithm
+// TC - O(log N) Heapify Algorithm for single index
+// TC - O(N) in case heapify called for entire array which we are doing in our case
 
 
 int main(){
@@ -63,7 +64,7 @@ int main(){
         heapify(arr, n, i);
     }
 
-    cout << "Printing the arr after Building Max Heap algorithm " << endl;
+    cout << "Printing the arr after Building Max Heap from given input array " << endl;
     for(int i = 1; i<=n; i++){
         cout << arr[i] << " ";
     }
@@ -79,7 +80,7 @@ int main(){
         heapify_minHeap(arr2, arr2.size(), i);
     }
 
-    cout << "Printing the arr after Building Min Heap algorithm " << endl;
+    cout << "Printing the arr after Building Min Heap from gievn input array " << endl;
     for(int i = 0; i<arr2.size(); i++){
         cout << arr2[i] << " ";
     }
