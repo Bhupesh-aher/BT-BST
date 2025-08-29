@@ -25,6 +25,7 @@ void heapify(int arr[], int n, int i){
 }
 
 // TC - O(log N) Heapify Algorithm
+// SC - O(log N) Auxillary space - height of the CBT
 
 
 
