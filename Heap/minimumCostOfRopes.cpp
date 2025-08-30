@@ -23,6 +23,9 @@ long long minCost(vector<long long> &arr){
     return cost;
 }
 
+// TC - O(n log n) 
+// SC - O(n) 
+
 int main(){
 
     vector<long long> arr = {4, 3, 2, 6};

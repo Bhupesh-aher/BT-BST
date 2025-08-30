@@ -2,6 +2,7 @@
 using namespace std;
 
 // Given BST which is also complete Complete Binary Tree (CBT) convert it into a Min Heap
+// With the condition that all the values in the left subtree of a node should be less than all the values in the right subtree of the node. This condition is applied to all the nodes 
 
 struct TreeNode {
     public: 
